@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../widgets/soon_widget.dart';
 import 'home_view.dart';
 
 class CommercialView extends StatelessWidget {

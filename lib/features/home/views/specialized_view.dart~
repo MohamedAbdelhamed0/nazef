@@ -3,14 +3,14 @@ import 'package:get/get.dart';
 
 import 'home_view.dart';
 
-class CommercialView extends StatelessWidget {
-  CommercialView({super.key});
+class SpecializedView extends StatelessWidget {
+  SpecializedView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('commercial_cleaning'.tr),
+        title: Text('specialized_services'.tr),
         centerTitle: true,
       ),
       body: ListView(
@@ -22,24 +22,24 @@ class CommercialView extends StatelessWidget {
           //   style: TextStyle(
           //     fontSize: 28,
           //     fontWeight: FontWeight.bold,
-          //     color: Color(0xFF11998E),
+          //     color: Color(0xFFFF416C),
           //   ),
           // ),
-          // const SizedBox(height: 40),
+          const SizedBox(height: 40),
           _buildServiceSection(
-            'office_cleaning'.tr,
-            'office_cleaning_desc'.tr,
-            Icons.business_center,
+            'carpet_cleaning'.tr,
+            'carpet_cleaning_desc'.tr,
+            Icons.camera_roll_outlined,
           ),
           _buildServiceSection(
-            'retail_space_cleaning'.tr,
-            'retail_space_cleaning_desc'.tr,
-            Icons.store,
+            'window_cleaning'.tr,
+            'window_cleaning_desc'.tr,
+            Icons.window,
           ),
           _buildServiceSection(
-            'industrial_cleaning'.tr,
-            'industrial_cleaning_desc'.tr,
-            Icons.factory,
+            'post_construction'.tr,
+            'post_construction_desc'.tr,
+            Icons.construction,
           ),
           PhoneNumbersCard(),
         ],

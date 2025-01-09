@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:nazef/core/helpers/size_config.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class AdCarousel extends StatefulWidget {
@@ -67,52 +68,57 @@ class _AdCarouselState extends State<AdCarousel> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.bottomCenter,
-      children: [
-        SizedBox(
-          height: 400,
-          child: PageView.builder(
-            controller: _pageController,
-            itemCount: adImages.length,
-            onPageChanged: (index) {
-              setState(() => _currentPage = index);
-            },
-            itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () => _showImageOverlay(context, adImages[index]),
-                child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      adImages[index],
-                      fit: BoxFit.cover,
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          SizedBox(
+            height: SizeConfig.screenWidth! < 600 ? 400 : 500,
+            child: PageView.builder(
+              controller: _pageController,
+              itemCount: adImages.length,
+              onPageChanged: (index) {
+                setState(() => _currentPage = index);
+              },
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () => _showImageOverlay(context, adImages[index]),
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        adImages[index],
+                        fit: SizeConfig.screenWidth != null
+                            ? BoxFit.cover
+                            : BoxFit.fitHeight,
+                      ),
                     ),
                   ),
-                ),
-              );
-            },
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 8.0),
-          child: SmoothPageIndicator(
-            controller: _pageController,
-            count: adImages.length,
-            effect: const ExpandingDotsEffect(
-              dotHeight: 8,
-              dotWidth: 8,
-              spacing: 8,
-              dotColor: Colors.white60,
-              activeDotColor: Colors.white,
+                );
+              },
             ),
           ),
-        ),
-      ],
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: SmoothPageIndicator(
+              controller: _pageController,
+              count: adImages.length,
+              effect: const ExpandingDotsEffect(
+                dotHeight: 8,
+                dotWidth: 8,
+                spacing: 8,
+                dotColor: Colors.white60,
+                activeDotColor: Colors.white,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

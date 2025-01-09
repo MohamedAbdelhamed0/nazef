@@ -1,73 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart'; // Add this to support Clipboard
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart'; // Add this import
 
+import '../../../core/helpers/size_config.dart';
 import '../widgets/ad_carousel.dart';
-
-class SizeConfig {
-  static MediaQueryData? _mediaQueryData;
-  static double? screenWidth;
-  static double? screenHeight;
-  static double? blockSizeHorizontal;
-  static double? blockSizeVertical;
-
-  static void init(BuildContext context) {
-    _mediaQueryData = MediaQuery.of(context);
-    screenWidth = _mediaQueryData!.size.width;
-    screenHeight = _mediaQueryData!.size.height;
-    blockSizeHorizontal = screenWidth! / 100;
-    blockSizeVertical = screenHeight! / 100;
-  }
-
-  static double getResponsiveSize(double size) {
-    return screenWidth! < 600
-        ? blockSizeHorizontal! * (size / 2.0) // Larger for mobile
-        : blockSizeHorizontal! * (size / 3.5); // Larger for tablet/desktop
-  }
-}
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
-
-  void _showPhoneNumbers(BuildContext context) {
-    final phoneNumbers = [
-      {'number': '+971522330037', 'label': 'Main Office'},
-      {'number': '+971562735157', 'label': 'Customer Service'},
-      {'number': '+97142842266', 'label': 'Emergency'},
-    ];
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) => Container(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'contact_us'.tr,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 16),
-            ...phoneNumbers
-                .map((phone) => ListTile(
-                      leading: const Icon(Icons.phone),
-                      title: Text(phone['label']!),
-                      subtitle: Text(phone['number']!),
-                      onTap: () async {
-                        final url = 'tel:${phone['number']}';
-                        if (await canLaunch(url)) {
-                          await launch(url);
-                        }
-                      },
-                    ))
-                .toList(),
-          ],
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -178,6 +118,32 @@ class HomeView extends StatelessWidget {
                         ),
                         onTap: () => _showPhoneNumbers(context),
                       ),
+                      ServiceCard(
+                        title: 'availability_title'.tr,
+                        description: 'availability_desc'.tr +
+                            ' ' +
+                            'twenty_four_hours'.tr,
+                        icon: Icons.access_time,
+                        gradient: const LinearGradient(
+                          colors: [Color(0xFF4CAF50), Color(0xFF087F23)],
+                        ),
+                        onTap: () {},
+                      ),
+                      ServiceCard(
+                        title: 'email_title'.tr,
+                        description: 'email_desc'.tr,
+                        icon: Icons.email_outlined,
+                        gradient: const LinearGradient(
+                          colors: [Color(0xFFBA68C8), Color(0xFF7B1FA2)],
+                        ),
+                        onTap: () {
+                          Clipboard.setData(
+                              const ClipboardData(text: 'info@hacc-me.com'));
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('email_copied'.tr)),
+                          );
+                        },
+                      ),
                     ],
                   );
                 },
@@ -236,6 +202,11 @@ class HomeView extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.greenAccent,
+        onPressed: () => _showPhoneNumbers(context),
+        child: const Icon(Icons.phone),
       ),
     );
   }
@@ -421,4 +392,44 @@ class PhoneNumbersCard extends StatelessWidget {
       ),
     );
   }
+}
+
+void _showPhoneNumbers(BuildContext context) {
+  final phoneNumbers = [
+    {'number': '+971522330037', 'label': 'Main Office'},
+    {'number': '+971562735157', 'label': 'Customer Service'},
+    {'number': '+97142842266', 'label': 'Emergency'},
+  ];
+  showModalBottomSheet(
+    context: context,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+    ),
+    builder: (context) => Container(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            'contact_us'.tr,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 16),
+          ...phoneNumbers
+              .map((phone) => ListTile(
+                    leading: const Icon(Icons.phone),
+                    title: Text(phone['label']!),
+                    subtitle: Text(phone['number']!),
+                    onTap: () async {
+                      final url = 'tel:${phone['number']}';
+                      if (await canLaunch(url)) {
+                        await launch(url);
+                      }
+                    },
+                  ))
+              .toList(),
+        ],
+      ),
+    ),
+  );
 }

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:nazef/core/helpers/size_config.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class AdCarousel extends StatefulWidget {
@@ -73,7 +74,7 @@ class _AdCarouselState extends State<AdCarousel> {
         alignment: Alignment.bottomCenter,
         children: [
           SizedBox(
-            height: 400,
+            height: SizeConfig.screenWidth! < 600 ? 400 : 500,
             child: PageView.builder(
               controller: _pageController,
               itemCount: adImages.length,
@@ -92,7 +93,9 @@ class _AdCarouselState extends State<AdCarousel> {
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
                         adImages[index],
-                        fit: BoxFit.cover,
+                        fit: SizeConfig.screenWidth! < 600
+                            ? BoxFit.cover
+                            : BoxFit.fitHeight,
                       ),
                     ),
                   ),
