@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+<<<<<<< HEAD
 import '../../widgets/soon_widget.dart';
+=======
+>>>>>>> gh-pages
 import 'home_view.dart';
 
 class SpecializedView extends StatelessWidget {
@@ -17,6 +20,7 @@ class SpecializedView extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
+<<<<<<< HEAD
           const SizedBox(height: 20),
           const SoonWidget(
             animationDuration: Duration(milliseconds: 2000),
@@ -27,6 +31,18 @@ class SpecializedView extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 40),
+=======
+          // const SizedBox(height: 20),
+          // const SoonWidget(
+          //   animationDuration: Duration(milliseconds: 2000),
+          //   style: TextStyle(
+          //     fontSize: 28,
+          //     fontWeight: FontWeight.bold,
+          //     color: Color(0xFFFF416C),
+          //   ),
+          // ),
+          // const SizedBox(height: 40),
+>>>>>>> gh-pages
           _buildServiceSection(
             'carpet_cleaning'.tr,
             'carpet_cleaning_desc'.tr,

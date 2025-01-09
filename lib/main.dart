@@ -8,7 +8,14 @@ import 'features/settings/controllers/settings_controller.dart';
 
 void main() async {
   await GetStorage.init();
+<<<<<<< HEAD
   Get.put(SettingsController());
+=======
+  final settingsController = Get.put(SettingsController());
+  if (settingsController.currentLanguage.value.isEmpty) {
+    settingsController.currentLanguage.value = 'ar';
+  }
+>>>>>>> gh-pages
   runApp(const MyApp());
 }
 
@@ -26,7 +33,11 @@ class MyApp extends StatelessWidget {
         title: 'Nazef',
         translations: Messages(),
         locale: isArabic ? const Locale('ar') : const Locale('en'),
+<<<<<<< HEAD
         fallbackLocale: const Locale('en'),
+=======
+        fallbackLocale: const Locale('ar'),
+>>>>>>> gh-pages
         theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(

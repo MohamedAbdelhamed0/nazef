@@ -15,10 +15,33 @@ migration:
     - platform: root
       create_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
       base_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
+<<<<<<< HEAD
     - platform: android
       create_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
       base_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
     - platform: windows
+=======
+<<<<<<< HEAD
+    - platform: web
+=======
+    - platform: android
+      create_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
+      base_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
+    - platform: ios
+      create_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
+      base_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
+    - platform: linux
+      create_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
+      base_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
+    - platform: macos
+      create_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
+      base_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
+    - platform: web
+      create_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
+      base_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
+    - platform: windows
+>>>>>>> 2460f40 (Deploy to GitHub Pages)
+>>>>>>> gh-pages
       create_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
       base_revision: dec2ee5c1f98f8e84a7d5380c05eb8a3d0a81668
 

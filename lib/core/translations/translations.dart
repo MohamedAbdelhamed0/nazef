@@ -60,6 +60,17 @@ class Messages extends Translations {
           'mission_description':
               'To provide our clients with a cleaner, healthier environment through quality cleaning services and exemplary customer service',
           'welcome_message': 'Welcome to hacc cleaning services',
+<<<<<<< HEAD
+=======
+          'availability_title': '24/7 Availability',
+          'availability_desc':
+              'We are available around the clock. Call us any time.',
+          'email_title': 'Email Us',
+          'email_desc': 'Tap to copy our email address!',
+          'email_copied': 'Email copied successfully!',
+          'twenty_four_hours': '24 Hours',
+          'select_language_helper': 'Select your language preference',
+>>>>>>> gh-pages
         },
         'ar': {
           'app_name': 'نظيف',
@@ -111,11 +122,25 @@ class Messages extends Translations {
           'about_us': 'معلومات عنا',
           'who_we_are': 'من نحن',
           'about_description':
+<<<<<<< HEAD
               'تأسست مجموعة حاك في عام 2013، وبنت سمعة متميزة في صناعة التنظيف. يتكون فريقنا من محترفين ذوي خبرة ومدربين تدريباً عالياً متخصصين في تقديم خدمة عالية الجودة مع أقصى درجات العناية والموثوقية.',
+=======
+              'تأسست مجموعة HAC في عام 2013، وبنت سمعة متميزة في صناعة التنظيف. يتكون فريقنا من محترفين ذوي خبرة ومدربين تدريباً عالياً متخصصين في تقديم خدمة عالية الجودة مع أقصى درجات العناية والموثوقية.',
+>>>>>>> gh-pages
           'our_mission': 'مهمتنا',
           'mission_description':
               'توفير بيئة أنظف وأكثر صحة لعملائنا من خلال خدمات تنظيف عالية الجودة وخدمة عملاء مثالية',
           'welcome_message': 'مرحبا بك في خدمات hacc للتنظيف',
+<<<<<<< HEAD
+=======
+          'availability_title': 'متوفرون على مدار الساعة',
+          'availability_desc': 'نحن متاحون طوال اليوم، اتصل بنا في أي وقت.',
+          'email_title': 'راسلنا',
+          'email_desc': 'انقر لنسخ بريدنا الإلكتروني!',
+          'email_copied': 'تم نسخ البريد الإلكتروني بنجاح!',
+          'twenty_four_hours': '24 ساعة',
+          'select_language_helper': 'اختر تفضيلك للغة',
+>>>>>>> gh-pages
         },
       };
 }

@@ -1,0 +1,33 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'core/routes/app_routes.dart';
+import 'core/translations/translations.dart';
+import 'features/home/views/home_view.dart';
+import 'features/settings/views/settings_view.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      title: 'Nazef',
+      translations: Messages(),
+      locale: const Locale('en'), // Default locale
+      fallbackLocale: const Locale('en'),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      getPages: [
+        GetPage(name: '/home', page: () => const HomeView()),
+        GetPage(name: '/settings', page: () => const SettingsView()),
+        // ... other routes
+      ],
+      initialRoute: '/splash',
+    );
+  }
+}
