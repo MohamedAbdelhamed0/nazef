@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "name": "nazef",
     "short_name": "nazef",
+=======
+    "name": "nazeff",
+    "short_name": "nazeff",
+>>>>>>> 2460f40 (Deploy to GitHub Pages)
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
