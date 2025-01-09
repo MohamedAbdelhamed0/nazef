@@ -1,76 +1,4 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart'; // Add this import
-
-import '../widgets/ad_carousel.dart';
-
-class SizeConfig {
-  static MediaQueryData? _mediaQueryData;
-  static double? screenWidth;
-  static double? screenHeight;
-  static double? blockSizeHorizontal;
-  static double? blockSizeVertical;
-
-  static void init(BuildContext context) {
-    _mediaQueryData = MediaQuery.of(context);
-    screenWidth = _mediaQueryData!.size.width;
-    screenHeight = _mediaQueryData!.size.height;
-    blockSizeHorizontal = screenWidth! / 100;
-    blockSizeVertical = screenHeight! / 100;
-  }
-
-  static double getResponsiveSize(double size) {
-    return screenWidth! < 600
-        ? blockSizeHorizontal! * (size / 2.0) // Larger for mobile
-        : blockSizeHorizontal! * (size / 3.5); // Larger for tablet/desktop
-  }
-}
-
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
-
-  void _showPhoneNumbers(BuildContext context) {
-    final phoneNumbers = [
-      {'number': '+971522330037', 'label': 'Main Office'},
-      {'number': '+971562735157', 'label': 'Customer Service'},
-      {'number': '+97142842266', 'label': 'Emergency'},
-    ];
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) => Container(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'contact_us'.tr,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 16),
-            ...phoneNumbers
-                .map((phone) => ListTile(
-                      leading: const Icon(Icons.phone),
-                      title: Text(phone['label']!),
-                      subtitle: Text(phone['number']!),
-                      onTap: () async {
-                        final url = 'tel:${phone['number']}';
-                        if (await canLaunch(url)) {
-                          await launch(url);
-                        }
-                      },
-                    ))
-                .toList(),
-          ],
-        ),
-      ),
-    );
-  }
-
-=======
 import 'package:flutter/services.dart'; // Add this to support Clipboard
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart'; // Add this import
@@ -81,7 +9,6 @@ import '../widgets/ad_carousel.dart';
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
->>>>>>> gh-pages
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
@@ -191,8 +118,6 @@ class HomeView extends StatelessWidget {
                         ),
                         onTap: () => _showPhoneNumbers(context),
                       ),
-<<<<<<< HEAD
-=======
                       ServiceCard(
                         title: 'availability_title'.tr,
                         description: 'availability_desc'.tr +
@@ -219,7 +144,6 @@ class HomeView extends StatelessWidget {
                           );
                         },
                       ),
->>>>>>> gh-pages
                     ],
                   );
                 },
@@ -279,14 +203,11 @@ class HomeView extends StatelessWidget {
           ],
         ),
       ),
-<<<<<<< HEAD
-=======
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.greenAccent,
         onPressed: () => _showPhoneNumbers(context),
         child: const Icon(Icons.phone),
       ),
->>>>>>> gh-pages
     );
   }
 }
@@ -472,8 +393,6 @@ class PhoneNumbersCard extends StatelessWidget {
     );
   }
 }
-<<<<<<< HEAD
-=======
 
 void _showPhoneNumbers(BuildContext context) {
   final phoneNumbers = [
@@ -514,4 +433,3 @@ void _showPhoneNumbers(BuildContext context) {
     ),
   );
 }
->>>>>>> gh-pages

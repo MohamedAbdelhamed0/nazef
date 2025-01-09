@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-<<<<<<< HEAD
-import '../../widgets/soon_widget.dart';
-=======
->>>>>>> gh-pages
 import 'home_view.dart';
 
 class CommercialView extends StatelessWidget {
@@ -20,18 +16,6 @@ class CommercialView extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
-<<<<<<< HEAD
-          const SizedBox(height: 20),
-          const SoonWidget(
-            animationDuration: Duration(milliseconds: 2000),
-            style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF11998E),
-            ),
-          ),
-          const SizedBox(height: 40),
-=======
           // const SizedBox(height: 20),
           // const SoonWidget(
           //   animationDuration: Duration(milliseconds: 2000),
@@ -42,7 +26,6 @@ class CommercialView extends StatelessWidget {
           //   ),
           // ),
           // const SizedBox(height: 40),
->>>>>>> gh-pages
           _buildServiceSection(
             'office_cleaning'.tr,
             'office_cleaning_desc'.tr,
